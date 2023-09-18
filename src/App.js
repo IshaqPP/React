@@ -1,15 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const name = "Ishaq P P";
+  const dateobj = new Date();
+  const year = dateobj.getFullYear();
   return (
     <div className="App">
-      <h1>My favourite Football players</h1>
-      <ul>
-        <li>Messi</li>
-        <li>Cristiano Ronaldo</li>
-        <li>Neymar</li>
-      </ul>       
+      <h1>  Created By {name}</h1>
+     <p>Copyright {year} </p>      
     </div>
   );
 }
