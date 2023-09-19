@@ -1,6 +1,7 @@
-import './App.css';
+import '../App.css';
 import List from './List';
-import Header from './Header'
+import Header from './Header';
+import Greetings from './Greetings'
 
 function App() {
   
@@ -8,6 +9,8 @@ function App() {
     <div>
       <Header />
       <List />
+      <Greetings />
+
     </div>
   );
 }
