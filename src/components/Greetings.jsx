@@ -1,4 +1,3 @@
-import React from "react";
 
 function Greetings() {
     const date = new Date(19,9,2023 , 17);
