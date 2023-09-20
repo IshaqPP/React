@@ -1,14 +1,17 @@
 import React from "react";
+import CircleImg from "./CircleImg";
+import Details from "./Details";
 
 function Card(props) {
     return(
         <div className="card ">
             <div className="top">
                 <p className="name">{props.name}</p>
-                <img src={props.imgUrl} alt="images" className="circle-img "/>
+                <CircleImg imgUrl={props.imgUrl}/>
             </div>
             <div className="bottom">
-            <p className="info ">{props.Country}</p>
+            <Details data={props.Country}/>
+            <Details data={props.team}/>
             </div>
         </div>
     );
