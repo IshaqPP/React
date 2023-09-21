@@ -1,31 +1,31 @@
 import React from "react";
-import Contact from "../Contact";
-import Card from "./Card";
+import emojiList from "../emojiList";
+import EmojiCard from "./EmojiCard";
+
+function emoji(SingleEmoji){
+  return <EmojiCard 
+    key={SingleEmoji.id}
+    emoji={SingleEmoji.emoji}
+    name={SingleEmoji.name}
+    meaning={SingleEmoji.meaning}
+  />
+}
+
+function cut(SingleEmoji) {
+  return SingleEmoji.meaning.substring(0,100);
+}
 
 function App() {
-  console.log(Contact);
+  let str=emojiList.map(cut);
+  console.log(str);
   return (
     <div>
-      <header className="heading">My Contacts</header>
-      <Card
-       name={Contact[0].name}
-       imgUrl={Contact[0].imgUrl}
-       Country={Contact[0].Country}
-       team={Contact[0].Team}
-       />
-       <Card
-       name={Contact[1].name}
-       imgUrl={Contact[1].imgUrl}
-       Country={Contact[1].Country}
-       team={Contact[1].Team}
-       />
-       <Card
-       name={Contact[2].name}
-       imgUrl={Contact[2].imgUrl}
-       Country={Contact[2].Country}
-       team={Contact[2].Team}
-       />
-        
+      <h1>
+        <span>emojipedia</span>
+      </h1>
+      <dl className="dictionary">
+      {emojiList.map(emoji)}
+      </dl>
     </div>
   );
 }

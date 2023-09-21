@@ -6,7 +6,8 @@ function Card(props) {
     return(
         <div className="card ">
             <div className="top">
-                <p className="name">{props.name}</p>
+                <p className="id">{props.id}</p>
+                <h2 className="name">{props.name}</h2>
                 <CircleImg imgUrl={props.imgUrl}/>
             </div>
             <div className="bottom">
