@@ -1,53 +1,40 @@
 import React, { useState } from "react";  
   
-
 function App() {
+  const [list,setList]=useState([]);
+  const [task,setTask]=useState("");
 
-  const [clr,setColor] = useState("white");
-  const [contact,setContact]=useState({
-    fName:"",
-    lName:"",
-    email:""
-  })
-  
-  function mouseIn() {
-    console.log("mouseIn");
-    setColor("Black");
-  }
-  function onMouseOut() {
-    console.log("onMouseOut");
-    setColor("white");
+  function handleChange(event) {
+    setTask(event.target.value);
   }
 
-  function ReadName(event) {
-    const {name,value}=event.target;
-
-    setContact((preValue)=>{
-      return(
-        {
-          ...preValue,
-          [name]:value
-        }
+  function handleclick() {
+    setList((prevItems)=>{
+      return (
+        [...prevItems,task]
       );
-    })
-
+    });
+    setTask("");
   }
-
-
-
   return (
     <div className="container">
-    <h1>
-      Hello {contact.fName} {contact.lName}
-    </h1>
-    <p>{contact.email}</p>
-    <form>
-      <input name="fName" placeholder="First Name" onChange={ReadName}/>
-      <input name="lName" placeholder="Last Name" onChange={ReadName} />
-      <input name="email" placeholder="Email" onChange={ReadName}/>
-      <button style={{backgroundColor:clr}} onMouseOut={onMouseOut} onMouseOver={mouseIn}>Submit</button>
-    </form>
-  </div>
+      <div className="heading">
+        <h1>To-Do List</h1>
+      </div>
+      <div className="form">
+        <input type="text" onChange={handleChange} value={task}/>
+        <button onClick={handleclick}>
+          <span>Add</span>
+        </button>
+      </div>
+      <div>
+        <ul>
+        {list.map((task)=>{
+          return(<li>{task}</li>);
+        })}
+        </ul>
+      </div>
+    </div>
   );
 }
 
